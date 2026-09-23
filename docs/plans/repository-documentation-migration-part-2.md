@@ -72,10 +72,10 @@ Run:
 rg -q '受控工作流' docs/architecture/agent-workflow.md
 rg -q '幂等' docs/architecture/agent-workflow.md
 for term in 历史时点 复杂表格 引用 防幻觉; do rg -q "$term" docs/architecture/data-and-rag.md; done
-rg -q '会话记忆.*不是.*证据\|会话记忆.*不.*证据' docs/architecture/conversation-and-context.md
+rg -q '会话记忆.*不是.*证据|会话记忆.*不.*证据' docs/architecture/conversation-and-context.md
 rg -q '普通对话' docs/architecture/conversation-and-context.md
 git diff --check
-git add docs/architecture/agent-workflow.md docs/architecture/data-and-rag.md docs/architecture/conversation-and-context.md
+git add docs/architecture/agent-workflow.md docs/architecture/data-and-rag.md docs/architecture/conversation-and-context.md docs/plans/repository-documentation-migration-part-2.md
 git commit -m "docs: define agent data and conversation architecture"
 ```
 
