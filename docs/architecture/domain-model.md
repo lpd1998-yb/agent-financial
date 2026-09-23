@@ -68,7 +68,7 @@
 | 事件 | `EvidenceBundleBuilt`、`CitationValidated`、`EvidenceInsufficient` |
 | 外部引用 | documentId、researchRunId、metricResultId |
 
-`EvidenceChunk` 是检索单元，不是权威事实。`Citation` 把研究结论连接到原文位置和文档版本。
+`EvidenceChunk` 是检索单元，不是权威事实。`Citation` 把研究结论连接到原文位置和文档版本。原设计中的 `EvidencePackage` 统一命名为 `EvidenceBundle`。
 
 ## 4. Research 与 InvestmentView
 
@@ -120,7 +120,7 @@
 | 事件 | `ReportDrafted`、`ReportSectionGenerated`、`ReportVerified`、`ReportPublished`、`ReportSuperseded` |
 | 外部引用 | researchRunId、researchBaselineId、evidenceBundleId、modelUsageRecordId |
 
-报告类型包括首次完整研究、日报、周报、月报和修订版。PDF 是报告版本的不可变资产，不是独立业务事实。
+报告类型包括首次完整研究、日报、周报、月报和修订版。`WeeklyDigest` 是关注列表级周报投影，不是新的事实聚合。PDF 是报告版本的不可变资产，不是独立业务事实。
 
 ## 6. Watchlist 与 Alert
 
@@ -129,9 +129,9 @@
 | 属性 | 定义 |
 | --- | --- |
 | 聚合 ID | `watchlistId` |
-| 持有状态 | `WatchlistItem`、启停状态、报告频率和用户可见设置 |
+| 持有状态 | `WatchlistItem`、`AlertRule`、启停状态、报告频率和用户可见设置 |
 | 不变量 | 同一 securityId 不能重复激活；加入后必须请求预热，移除不删除历史研究 |
-| 事件 | `SecurityAddedToWatchlist`、`SecurityRemovedFromWatchlist`、`ResearchWarmupRequested` |
+| 事件 | `SecurityAddedToWatchlist`、`SecurityRemovedFromWatchlist`、`AlertRuleChanged`、`ResearchWarmupRequested` |
 | 外部引用 | securityId、researchTaskId |
 
 ### 6.2 MarketEvent 与 AlertNotification
@@ -152,7 +152,7 @@
 | 事件 | `ConversationContextChanged`、`UserConfirmationRequested`、`IntentResolved` |
 | 外部引用 | securityId、reportId、researchTaskId、preferenceProfileId |
 
-原始消息作为审计记录单独保存；模型上下文是按当前任务组装的投影。
+原始消息作为审计记录单独保存；模型上下文是按当前任务组装的 `ConversationState` 投影，不是新的聚合。
 
 ## 8. Execution 与 ResearchRun
 
@@ -256,3 +256,11 @@ REVISION_PROPOSED → USER_APPROVED → APPLIED
 终止状态为 `REJECTED`、`INSUFFICIENT_EVIDENCE` 或 `CONVERTED_TO_EVAL_CASE`。
 
 所有状态迁移必须记录时间、操作者、原因、输入版本和对应事件。跨聚合最终一致时，Outbox 事件与聚合修改在同一数据库事务中提交。
+
+## 12. 统一命名
+
+- `ResearchRun` 是执行聚合的正式名称，替代原设计中的 `AnalysisRun`；
+- `EvidenceBundle` 是证据集合的正式名称，替代 `EvidencePackage`；
+- `ConversationSession` 是会话聚合，`ConversationState` 仅表示一次模型调用的上下文投影；
+- `asOfTime` 是统一分析截止时间，可表达日期与时间，替代只表达日期的 `asOfDate`；
+- 兼容层可以接受旧名称，但领域事件、数据库和新 API 只使用正式名称。

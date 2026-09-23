@@ -25,7 +25,7 @@ This governance design establishes:
 3. Stable design documents use stable filenames without dates.
 4. Historical decisions and implementation plans use numbered or milestone-specific filenames.
 5. Product intent, current architecture, historical decisions, implementation plans, and operational procedures remain separate.
-6. Accepted documents contain no ownerless `TODO` or `TBD` markers.
+6. Accepted documents contain no unresolved placeholder markers.
 7. A document that exceeds roughly 400 lines or owns more than one independent concern should be split.
 8. Product and system architecture documents use Chinese prose and English filenames, code identifiers, API names, and schema names. Agent instructions and implementation plans may use English when required by their execution templates.
 9. A behavior-changing implementation updates its affected documentation in the same commit or an explicitly linked commit.

@@ -43,7 +43,7 @@ ECS、云盘、OSS 和百炼优先选择兼容地域；公网入口与备案策�
 Docker Compose 管理：
 
 - Nginx；
-- Vue 研究控制台静态资源；
+- Vue 3 + TypeScript 研究控制台静态资源；
 - Spring Boot API；
 - Research Worker；
 - n8n；
