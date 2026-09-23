@@ -1,8 +1,8 @@
 # Repository and Documentation Governance Design
 
-- Status: Proposed
+- Status: Accepted
 - Owner: Project
-- Last reviewed: 2026-09-22
+- Last reviewed: 2026-09-23
 - Scope: Defines the repository layout, documentation ownership, change rules, code organization, and migration of the initial monolithic design document.
 
 ## 1. Purpose
@@ -27,7 +27,7 @@ This governance design establishes:
 5. Product intent, current architecture, historical decisions, implementation plans, and operational procedures remain separate.
 6. Accepted documents contain no ownerless `TODO` or `TBD` markers.
 7. A document that exceeds roughly 400 lines or owns more than one independent concern should be split.
-8. Documentation uses Chinese prose and English filenames, code identifiers, API names, and schema names.
+8. Product and system architecture documents use Chinese prose and English filenames, code identifiers, API names, and schema names. Agent instructions and implementation plans may use English when required by their execution templates.
 9. A behavior-changing implementation updates its affected documentation in the same commit or an explicitly linked commit.
 10. Temporary discussion artifacts, browser mockup caches, generated output, and debug files are not committed.
 
@@ -46,6 +46,7 @@ agent-financial/
 │   │   ├── reports-and-investment-view.md
 │   │   └── feedback-and-revision.md
 │   ├── architecture/
+│   │   ├── repository-governance.md
 │   │   ├── system-overview.md
 │   │   ├── domain-model.md
 │   │   ├── agent-workflow.md
@@ -97,7 +98,7 @@ Only directories with content are created. Empty implementation directories are 
 
 ### 4.2 Architecture documents
 
-`docs/architecture/` owns the currently valid technical design. These files are living documents and change when the accepted architecture changes.
+`docs/architecture/` owns the currently valid technical design and repository governance rules. These files are living documents and change when the accepted architecture or governance model changes.
 
 ### 4.3 Architecture decision records
 
@@ -272,7 +273,7 @@ Implementation work follows the active milestone plan. If implementation discove
 
 ## 9. Migration of the Initial Design
 
-The current `docs/design/2026-09-22-a-share-research-agent-design.md` is split into authoritative product and architecture documents.
+The current `docs/design/2026-09-22-a-share-research-agent-design.md` is split into authoritative product and architecture documents. This accepted governance design moves to `docs/architecture/repository-governance.md` so the completed repository contains no transitional `docs/design/` directory.
 
 Migration rules:
 
@@ -300,4 +301,3 @@ The migration is complete when:
 - repository search finds no stale link to the removed monolithic file;
 - documentation files pass Markdown and whitespace checks;
 - the Git diff contains only documentation and governance changes.
-
