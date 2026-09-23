@@ -143,4 +143,4 @@ AI 研究控制台（Research Control Plane）是核心产品模块，用于展�
 - 降级体验：部分非关键数据缺失时说明缺口并继续，关键证据不足时停止正式观点发布；
 - 恢复体验：失败必须提供可理解原因和可执行的重试入口。
 
-反馈和修订体验见 [反馈与报告修订](feedback-and-revision.md)。执行状态、事件和恢复机制由后续架构文档维护，产品文档不复制其技术实现。
+反馈和修订体验见 [反馈与报告修订](feedback-and-revision.md)。执行状态和事件见 [Agent 工作流](../architecture/agent-workflow.md) 与 [可观测性和评测](../architecture/observability-and-evals.md)，恢复机制见 [安全与可靠性](../architecture/security-and-reliability.md)；产品文档不复制其技术实现。

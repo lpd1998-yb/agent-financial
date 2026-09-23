@@ -4,10 +4,11 @@
 - Owner: Project
 - Last reviewed: 2026-09-23
 - Scope: Defines the repository layout, documentation ownership, change rules, code organization, and migration of the initial monolithic design document.
+- Related ADRs: ADR-0004
 
 ## 1. Purpose
 
-The repository currently contains a short root README and one 1,300-line design document. That document is useful as an initial design snapshot but is too broad to remain the only source of truth during implementation.
+At the start of the migration, the repository contained a short root README and one 1,300-line design document. That document was useful as an initial design snapshot but was too broad to remain the only source of truth during implementation.
 
 This governance design establishes:
 
