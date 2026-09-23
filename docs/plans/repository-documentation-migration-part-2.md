@@ -172,10 +172,10 @@ for file in docs/decisions/ADR-*.md; do
 done
 for term in ResearchRun Evidence Citation InvestmentView RAG; do rg -q "$term" docs/reference/glossary.md; done
 for term in Tushare Feishu Alibaba PostgreSQL n8n 'Spring AI'; do rg -q "$term" docs/reference/external-services.md; done
-rg -q 'Last verified\|最后核验' docs/reference/external-services.md
+rg -q 'Last verified|最后核验' docs/reference/external-services.md
 ! rg -n '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|password\s*[:=]|token\s*[:=]\s*[^<])' docs AGENTS.md
 git diff --check
-git add docs/decisions docs/reference
+git add docs/decisions docs/reference docs/plans/repository-documentation-migration-part-2.md
 git commit -m "docs: record decisions and external references"
 ```
 
