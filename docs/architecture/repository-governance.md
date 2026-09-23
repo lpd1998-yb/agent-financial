@@ -273,7 +273,7 @@ Implementation work follows the active milestone plan. If implementation discove
 
 ## 9. Migration of the Initial Design
 
-The current `docs/design/2026-09-22-a-share-research-agent-design.md` is split into authoritative product and architecture documents. This accepted governance design moves to `docs/architecture/repository-governance.md` so the completed repository contains no transitional `docs/design/` directory.
+The initial `docs/design/2026-09-22-a-share-research-agent-design.md` is split into authoritative product and architecture documents. This document is canonical at `docs/architecture/repository-governance.md`; the completed repository contains no transitional `docs/design/` directory.
 
 Migration rules:
 

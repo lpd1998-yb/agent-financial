@@ -8,7 +8,7 @@
 
 **Tech Stack:** Markdown, Git, POSIX shell, `rg`, and standard Unix text utilities.
 
-**Spec:** Current source: `docs/design/repository-and-documentation-governance-design.md`; canonical location after Task 1: `docs/architecture/repository-governance.md`.
+**Spec:** `docs/architecture/repository-governance.md`.
 
 ## Global Constraints
 
@@ -88,7 +88,7 @@ done
 rg -q 'Never read, print, copy, upload, or commit credentials' AGENTS.md
 rg -q 'Do not push, force-push' AGENTS.md
 git diff --check
-git add AGENTS.md docs/architecture/repository-governance.md docs/plans/repository-documentation-migration.md
+git add AGENTS.md docs/architecture/repository-governance.md docs/plans/repository-documentation-migration-part-1.md
 git commit -m "docs: install repository governance"
 ```
 
